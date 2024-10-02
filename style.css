@@ -4,11 +4,23 @@ html {
 
 @font-face {
   font-family: "Graduate";
-  src: url("/font/GRADUATE.ttf");
+  src: url("./font/GRADUATE.ttf");
   /* https://github.com/etunni/Graduate-Variable-Font */
+}
 
+@font-face {
   font-family: "Egyptienne";
-  src: url("/font/egyptienne-std-bold-regular.ttf");
+  src: url("./font/egyptienne-std-bold-regular.ttf");
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: url("./font/Century Gothic.ttf");
+}
+
+@font-face {
+  font-family: "Century Gothic bold";
+  src: url("./font/GOTHICB.TTF");
 }
 
 * {
@@ -190,6 +202,7 @@ nav ul li a {
   color: black;
   text-decoration: none;
   transition: text-shadow 0.3s;
+     font-variation-settings: "XOPQ" 389.34, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
 }
 
 nav ul li a:hover {
@@ -790,6 +803,14 @@ nav ul li a:hover {
   gap: 2rem;
   overflow-y: scroll;
 }
+
+.kenmerkenText h2,
+.conclusie h2{
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0, "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750, "YTDE" 0, "SELE" -20;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
 
 .kenmerkenText ul {
   list-style-type: none;
