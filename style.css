@@ -1,0 +1,1552 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Graduate";
+  src: url("font/GRADUATE.ttf");
+  /* https://github.com/etunni/Graduate-Variable-Font */
+
+  font-family: "Egyptienne";
+  src: url("font/egyptienne-std-bold-regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Rood: rgba(161, 12, 27, 1);
+  --DonkerRood: rgba(110, 8, 18, 1);
+  --Shadow: rgba(0, 0, 0, 0.5);
+  --Grijs: rgba(236, 236, 236, 1);
+
+}
+
+
+
+.spacing {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1080px;
+}
+
+h1 {
+  color: var(--Shadow);
+  font-size: 16.2vw;
+  font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+  background-color: var(--Rood);
+  width: 100%;
+  text-align: center;
+  font-variation-settings: "XOPQ" 900, "XTRA" 100, "OPSZ" 8, "GRAD" 20,
+    "YTRA" 750, "CNTR" 0, "YOPQ" 800, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+    "SELE" 0;
+  letter-spacing: -6rem;
+  animation: titleAnimation 1.4s ease-out forwards;
+  font-stretch: expanded;
+}
+
+p, h2,
+.text-roller,
+.fontWeights ul{
+  font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+}
+
+@keyframes titleAnimation {
+  0% {
+    font-size: 16.2vw;
+    color: var(--Shadow);
+    font-variation-settings: "XOPQ" 900, "XTRA" 100, "OPSZ" 8, "GRAD" 20,
+      "YTRA" 750, "CNTR" 0, "YOPQ" 800, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+      "SELE" 0;
+  }
+
+  50% {
+    color: var(--Shadow);
+    font-variation-settings: "XOPQ" 900, "XTRA" 100, "OPSZ" 8, "GRAD" 0,
+      "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+      "SELE" 0;
+  }
+
+  75% {
+    color: var(--Shadow);
+    font-variation-settings: "XOPQ" 500, "XTRA" 500, "OPSZ" 8, "GRAD" 0,
+      "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+      "SELE" 0;
+    text-shadow: 0 0 rgba(0, 0, 0, 0.5);
+  }
+
+  100% {
+    color: white;
+    font-variation-settings: "XOPQ" 500, "XTRA" 500, "OPSZ" 8, "GRAD" 0,
+      "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+      "SELE" 0;
+    letter-spacing: -0.35rem;
+    text-shadow: 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.grain {
+  /* position: fixed; */
+  position: absolute;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/******************************************************************************************/
+/***************************************Above the fold*************************************/
+/******************************************************************************************/
+
+/* h1:hover {
+    font-variation-settings: 'XOPQ' 900, 'YOPQ' 800;
+} */
+
+.ATF {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Rood);
+  overflow: hidden;
+  background-image: url(images/lines.svg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-repeat: no-repeat;
+  background-position: top -5rem right -0.1rem;
+}
+
+.baseball {
+  position: absolute;
+  /* left: -20%;
+    top: -74%; */
+  left: 10px;
+  top: -75px;
+  width: 100px;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.5));
+  animation: roll 1s ease-out forwards, bounce 0.55s ease-out forwards; /* Voeg bounce-animatie toe */
+  transition: filter 0.5s ease;
+}
+
+/* Statische schaduw wanneer de bal stil ligt */
+.baseball.still {
+  filter: drop-shadow(
+    20px 25px 0 rgba(0, 0, 0, 0.5)
+  ); /* Uitgerekte schaduw als de bal stil ligt */
+}
+
+@keyframes roll {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(calc(40vw - 50px), calc(30vh - 20px)) rotate(350deg);
+  }
+
+  100% {
+    transform: translate(calc(80vw - 100px), calc(30vh - 60px)) rotate(700deg);
+  }
+}
+
+
+@media (max-width: 1268px) {
+  h1{
+    padding-bottom: 2rem;
+    text-shadow: 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+/******************************************************************************************/
+/***************************************Navigation*************************************/
+/******************************************************************************************/
+
+
+
+
+/******************************************************************************************/
+/***************************************Intro tekst*************************************/
+/******************************************************************************************/
+
+.intro {
+  width: 100vw;
+  height: 100vh; /* Behoud de hoogte van 100vh op grotere schermen */
+  overflow: hidden;
+  background-color: var(--Grijs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.introText {
+  display: flex;
+  padding: 7vh 5vw;
+  gap: 2rem;
+  box-sizing: border-box;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.introText p,
+.kenmerkenText li {
+  font-size: 0.9rem; /* Adjust the font size for paragraphs */
+  font-family: "Century Gothic", 'Courier New', Courier, monospace;
+  line-height: 1.5rem;
+  letter-spacing: 0.02rem;
+}
+
+.introText h2 {
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0,
+    "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750,
+    "YTDE" 0, "SELE" -20;
+}
+
+.introText h2 span {
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0,
+    "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 650,
+    "YTDE" 0, "SELE" -20;
+}
+
+/* Jouw originele lettertype instellingen voor de h3's */
+.introText div h3:nth-of-type(1) {
+  font-family: "Egyptienne", "Roboto Slab", "Courier New", serif;
+  font-size: 1.3rem;
+}
+
+.introText div h3:nth-of-type(2) {
+  font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0,
+    "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750,
+    "YTDE" 0, "SELE" -20;
+}
+
+.introText section:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 30%;
+  flex-shrink: 0;
+}
+
+.introText section:nth-of-type(2) {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  position: relative;
+  flex-grow: 1;
+}
+
+/* Dynamische afbeeldinggrootte */
+.introText section:nth-of-type(2) img {
+  width: 80%; /* Basisbreedte van de afbeelding */
+  max-width: 80%;
+  height: auto;
+  max-height: 60vh; /* Limiteer de maximale hoogte van de afbeelding */
+  object-fit: contain;
+  align-self: center;
+  flex-shrink: 1; /* Zorg dat de afbeelding kleiner kan worden als dat nodig is */
+  filter: drop-shadow(0.1rem 0.1rem 0 var(--Shadow));
+}
+
+/* Dynamische breedte voor ABC-gedeelte */
+.introText section:nth-of-type(2) div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%; /* Zorgt dat het ABC-gedeelte ook 80% breed is, net als de afbeelding */
+  flex-shrink: 1; /* Laat het ABC-gedeelte krimpen indien nodig */
+}
+
+.introText section:nth-of-type(2) div h3 {
+  text-align: center;
+  width: 100%; /* Zorgt ervoor dat de h3's zich evenredig uitstrekken */
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.introText h4 {
+  font-family: "Century Gothic", 'Courier New', Courier, monospace;
+  font-size: 0.7rem;
+  width: 60%; /* Maakt h4 net zo breed als de afbeelding */
+  flex-shrink: 1; /* Laat h4 ook kleiner worden indien nodig */
+  font-style: italic;
+  line-height: 1rem;
+}
+
+.introText article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+nav {
+  border-top: solid 0.1rem black;
+  border-bottom: solid 0.1rem black;
+  height: 5rem;
+  flex-shrink: 0; /* Voorkomt dat nav krimpt */
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%; /* Zorg dat ul de volledige hoogte van nav inneemt */
+}
+
+nav ul li {
+  align-self: center;
+}
+
+@media (max-width: 1624px) {
+  .introText section:nth-of-type(1) {
+    width: 60%; /* 60% breedte voor de tekstsectie op tablets */
+  }
+
+  .introText section:nth-of-type(2) {
+    width: 40%; /* 40% breedte voor de afbeeldingsectie op tablets */
+  }
+
+  .introText h4 {
+
+    width: 80%; /* Maakt h4 net zo breed als de afbeelding */
+
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    height: auto; /* Zet hoogte op auto voor kleinere schermen */
+  }
+
+  .introText {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .introText section:nth-of-type(1),
+  .introText section:nth-of-type(2) {
+    width: 100%; /* Beide secties nemen volledige breedte in op kleinere schermen */
+  }
+
+  .introText section:nth-of-type(2) img,
+  .introText section:nth-of-type(2) div,
+  .introText h4 {
+    width: 100%; /* Zet afbeelding, div en h4 op volledige breedte op kleine schermen */
+    /* max-height: auto; */
+  }
+}
+
+
+
+
+/******************************************************************************************/
+/***************************************No bodytekst*************************************/
+/******************************************************************************************/
+
+.noBodytekst {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.noBodytekst video {
+  position: absolute; /* Ensures the video acts as a background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the section */
+  z-index: 1; /* Keep the video behind other content */
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Place the content above the video */
+  height: 45%; /* Restrict content height to half of the section */
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, rgba(236, 236, 236, 1) 33%, rgba(255, 255, 255, 0) 100%);
+  /* background-color: var(--Grijs); */
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between; /* Spread headers across the row */
+  padding: 7vh 5vw; /* Adjust padding as needed */
+  /* background-color: var(--Grijs); */
+  background: linear-gradient(to bottom, var(--Grijs) 33%, rgba(255, 255, 255, 0) 100%);
+}
+
+.left-header,
+.right-header {
+  margin: 0; /* Remove default margins for better control */
+  font-size: 2.5rem;
+  font-variation-settings: "XOPQ" 179.98, "XTRA" 241.56, "OPSZ" 8, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+  color: var(--Rood);
+  text-transform: uppercase;
+}
+
+.left-header span,
+.right-header span {
+  font-size: 3.5rem;
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0, "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750, "YTDE" 0, "SELE" -20;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  flex-wrap: wrap;
+  padding: 0 5vw; /* Ensure columns are also padded */
+
+
+
+}
+
+.column {
+  flex: 1; /* Make columns equal width */
+}
+
+.column p,
+.conclusie p  {
+  font-size: 0.9rem; /* Adjust the font size for paragraphs */
+  font-family: "Century Gothic", 'Courier New', Courier, monospace;
+  line-height: 1.5rem;
+  letter-spacing: 0.02rem;
+}
+
+.hover-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 50%; /* Adjust as needed */
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 3; /* Ensure the hover area is on top */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1280px) {
+  .left-header,
+  .right-header {
+    font-size: 2rem; /* Smaller font size for headers on smaller screens */
+  }
+
+  .left-header span,
+  .right-header span {
+    font-size: 3rem; /* Smaller span size for mobile */
+  }
+
+  .noBodytekst video{
+    height: 90%;
+    top: 15%;
+  }
+
+  .columns{
+    flex-direction: column;
+    gap: 1rem;
+    width: 50%;
+  }
+
+  .header-section{
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .content{
+    flex-direction: row;
+    height: 50%;
+  }
+
+  .column{
+    flex: none;
+  }
+
+  .columns{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .noBodytekst video{
+    height: 66%;
+    top: 34%;
+  }
+  
+  .content{
+    flex-direction: column;
+    background: linear-gradient(to bottom, rgba(236, 236, 236, 1) 87%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .left-header, .right-header {
+    font-size: 1.3rem;
+}
+
+.left-header span, .right-header span{
+  font-size: 2rem;
+}
+
+.header-section {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.columns {
+  flex-direction: column;
+  gap: 2rem;
+  width: 70%;
+}
+.hover-area{
+  height: 40%;
+}
+
+}
+
+@media (max-width: 700px) {
+  .noBodytekst video{
+    height: 50%;
+    top: 50%;
+  }
+
+  .columns{
+    width: 100%;
+  }
+
+  .header-section {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hover-area{
+  height: 20%;
+}
+
+.noBodytekst{
+  background-color: #efefef;
+}
+}
+
+
+/******************************************************************************************/
+/***************************************Baseball Jacket*************************************/
+/******************************************************************************************/
+
+/* Section */
+.jacket {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  /* display: flex; */
+  mix-blend-mode: multiply; /* Toepassen van de blend mode */
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Korrel */
+.grainJacket {
+  mix-blend-mode: multiply;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+/* Jacket */
+.baseballJack {
+  position: absolute;
+  filter: drop-shadow(1rem 1rem 0 var(--Shadow));
+  width: 50%;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.baseballJack:hover{
+  filter: drop-shadow(2rem 2rem 0 var(--Shadow));
+  cursor: pointer;
+}
+
+
+.baseballJack.enlarged {
+  transform: translate(-85%, -12%) scale(3.5);
+  cursor: pointer;
+}
+
+/* .baseballJack:hover,
+.H:hover {
+    transform: translate(-50%, -50%) scale(1.1) rotate(3deg); 
+} */
+
+/* H sticthed */
+/* .H {
+  position: absolute;
+  z-index: 2;
+  top: 40%; 
+  left: 54%; 
+
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  transition: transform 0.3s ease;
+}
+
+.H.enlarged {
+  transform: translate(-165%, -40%) scale(3);
+} */
+
+/***************************************Background jacket*************************************/
+/***************************************Background jacket*************************************/
+.text-roller-wrapper {
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column; /* Zet de balken onder elkaar */
+  width: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.text-roller {
+  position: relative;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  font-size: 5rem;
+  text-transform: uppercase;
+  padding: 1rem;
+  font-variation-settings: "XOPQ" 500, "XTRA" 500, "OPSZ" 8, "GRAD" 0,
+    "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0,
+    "SELE" 0;
+  mix-blend-mode: multiply;
+  transition: transform 0.3s ease; /* Voor een soepele transitie */
+}
+
+.text-roller span {
+  padding: 0 0.8rem;
+}
+
+
+
+@media (max-width: 1000px) {
+  .baseballJack{
+    width: 80%;
+  }
+
+  .text-roller{
+    font-size: 2rem;
+  }
+
+  .baseballJack.enlarged {
+    transform: translate(-75%, -12%) scale(3.5);
+}
+
+
+}
+
+
+
+
+
+
+
+/******************************************************************************************/
+/***************************************Kenmerken*************************************/
+/******************************************************************************************/
+
+.kenmerken {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Grijs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; /* Zorg dat de elementen naast elkaar staan */
+  align-items: center; /* Centraal uitlijnen in de verticale richting */
+  border-top: solid var(--Rood) 2rem;
+  /* background-image: url(images/BGlines.svg); */
+  background-position: center;
+  /* background-size: cover; */
+
+}
+
+.shirt {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative; /* Zorgt ervoor dat positionering goed werkt */
+}
+
+.shirt article{
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  position: relative; /* Dit is belangrijk voor absolute positionering */
+}
+.shirt article svg {
+    position: absolute; /* Hiermee worden de SVG's overlappend gemaakt */
+    left: 50%; /* Positioneer de SVG's in het midden */
+    transform: translateX(-50%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.first-svg,
+.border-svg {
+    top: 20%; /* De eerste SVG staat bovenaan */
+}
+.second-svg {
+    top: 35%; /* Stel de top in om het getal dichter onder de achternaam te plaatsen */
+}
+
+.achternaam,
+.number-text,
+.achternaam-border{
+  font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+  text-transform: uppercase;
+  letter-spacing: -5px;
+  font-variation-settings: "XOPQ" 661.09, "XTRA" 367.73, "OPSZ" 13.69, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+  position: absolute;
+  left: 0;
+  color: var(--Rood);
+}
+
+
+.achternaam{
+    transition: font-variation-settings 0.3s ease, font-family 0.5s ease;
+    font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+}
+
+.number-text{
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+
+.kenmerkenText{
+  width: 50%;
+  height: 80%;
+  background-color: var(--Grijs);
+  padding: 0 5rem;
+  display: flex;
+  /* justify-content: flex-start; */
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: scroll;
+}
+
+.kenmerkenText ul{
+list-style-type: none;
+display: flex;
+flex-direction:  column;
+gap: 1rem;
+}
+
+.kenmerkenText ul li span{
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: underline;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.kenmerkenText ul li span:hover{
+  color: var(--Rood);
+}
+
+.kenmerkenText article{
+  display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 82%;
+}
+
+
+.shirt img:nth-of-type(2) {
+  width: auto; /* Zorgt ervoor dat de breedte zich aanpast */
+  height: 100%; /* Zorgt ervoor dat de hoogte zich aanpast */
+  object-fit: cover; /* Zorgt ervoor dat de afbeelding de container bedekt */
+}
+
+.shirt img{
+  z-index: 0;
+}
+
+
+.border-svg {
+  pointer-events: none; /* Zorg ervoor dat deze SVG geen interactie heeft, zodat je de eerste SVG kunt selecteren */
+  opacity: 0; /* Begin met onzichtbaar */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.achternaam-border {
+  stroke: black; /* Kleur van de rand */
+  stroke-width: 8; /* Dikte van de rand */
+  fill: none; /* Vul de letters niet */
+}
+
+.borders:hover ~ .border-svg {
+  opacity: 1; /* Maak zichtbaar wanneer je over de .borders hover */
+}
+
+.shirt article img{
+  background-color: red;
+  width: 2rem;
+  position: absolute;
+  left: 20%; /* Positioneer de SVG's in het midden */
+  transform: translateX(-20%);
+  bottom: 25%;
+}
+
+
+.hva {
+  opacity: 0; /* Standaard onzichtbaar */
+  pointer-events: none; /* Niet klikbaar */
+  transition: opacity 0.3s ease; /* Zachte overgang */
+}
+
+.second-svg {
+  transition: filter 0.5s ease;
+}
+
+/* Gooey effect applied */
+.gooey-effect {
+  filter: url(#goo);
+}
+
+/* Styling voor de trigger span */
+.branding {
+  cursor: pointer;
+}
+
+
+@media (max-width: 1300px) {
+  .kenmerkenText{
+    width: 40%;
+    padding: 0 2rem;
+  }
+
+  .kenmerkenText article{
+    width: 100%;
+  }
+
+  .shirt{
+    width: 60%;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  .kenmerken {
+
+    flex-direction: column; /* Zorg dat de elementen naast elkaar staan */
+    align-items: center; /* Centraal uitlijnen in de verticale richting */
+    background-position: center;
+  }
+
+  .shirt img:nth-of-type(2){
+    width: 100%;
+  }
+  
+  .shirt {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .shirt article{
+    width: 100%;
+    height: 100%;
+  }
+
+  .shirt article svg {
+      position: absolute; /* Hiermee worden de SVG's overlappend gemaakt */
+      left: 50%; /* Positioneer de SVG's in het midden */
+      /* transform: translateX(0); */
+      transition: transform 0.3s ease;
+      z-index: 100;
+  }
+  .second-svg {
+      top: 5%; /* Stel de top in om het getal dichter onder de achternaam te plaatsen */
+  }
+
+  .first-svg, .border-svg{
+    top: 0;
+  }
+
+  text.number-text {
+    font-size: 10rem;
+}
+  
+  .number-text{
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  
+  .kenmerkenText{
+    width: 100%;
+    height: 80%;
+    margin: 2rem;
+    padding: 0 2rem;
+    flex-direction: row;
+
+    overflow-y: scroll;
+  }
+  
+  .kenmerkenText ul{
+  list-style-type: none;
+  display: flex;
+  flex-direction:  column;
+  gap: 1rem;
+  }
+
+  
+  .kenmerkenText article{
+    display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 80%;
+  }
+  
+}
+
+@media (max-width: 666px) {
+  .kenmerkenText{
+    flex-direction: column;
+  }
+
+  .kenmerkenText article{
+    width: 100%;
+  }
+
+  .achternaam, .number-text, .achternaam-border {
+    font-size: 16vw;
+}
+
+text.number-text {
+  font-size: 30vw;
+}
+
+.first-svg, .border-svg {
+  top: 5%;
+}
+}
+
+@media (max-width: 510px) {
+
+  .shirt{
+    height: 30%;
+  }
+
+  .kenmerkenText{
+    height: 70%;
+  }
+
+  .first-svg, .border-svg {
+    top: -15%;
+}
+
+.second-svg{
+  top: -30%;
+}
+
+text.number-text {
+  font-size: 25vw;
+}
+}
+
+
+/******************************************************************************************/
+/***************************************All font weight*************************************/
+/******************************************************************************************/
+.fontWeights {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--Grijs);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  gap: 4rem; /* Adjusted gap to prevent overflow */
+  padding: 5vh 5vw; /* Adjusted padding to better fit within 100vh */
+  /* box-sizing: border-box; */
+}
+
+.fontWeights div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 5rem; Adjust the space between articles */
+  /* flex-wrap: wrap; */
+  overflow-y: auto; /* In case of content overflow, allow scrolling */
+}
+
+.fontWeights h2 {
+  align-self: self-start;
+  font-size: 9vh; /* Reduced font-size to fit within 100vh */
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0,
+  "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750,
+  "YTDE" 0, "SELE" -20;
+  text-transform: uppercase;
+  margin: 0; /* Remove any default margin */
+}
+
+.fontWeights h2 span{
+  font-variation-settings: "XOPQ" 900, "XTRA" 800, "OPSZ" 8, "GRAD" 0,
+  "YTRA" 850, "CNTR" 0, "YOPQ" 100, "SERF" 29.88, "YTAS" 0, "YTLC" 750,
+  "YTDE" 0, "SELE" -20;
+  letter-spacing: 3rem;
+}
+
+.fontWeights article {
+  flex: 1; /* Ensures each article takes equal space */
+
+}
+
+.fontWeights ul {
+  font-size: 1.8rem; /* Slightly reduced font size */
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced gap to avoid overflow */
+  list-style-type: none;
+  margin: 0; /* Ensure no extra margin is applied */
+  padding: 0; /* Remove padding */
+  max-width: 100%;
+}
+
+.fontWeights ul:nth-of-type(1), .fontWeights ul:nth-of-type(2), .fontWeights ul:nth-of-type(4), .fontWeights ul:nth-of-type(5), .fontWeights ul:nth-of-type(7), .fontWeights ul:nth-of-type(8) {
+  margin-bottom: 2rem;
+}
+
+.fontWeights li {
+  flex: 0 0 auto;
+  white-space: nowrap; /* Prevent line breaks within list items */
+}
+
+@media (max-width: 1530px) {
+  .fontWeights div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fontWeights ul:nth-of-type(3), .fontWeights ul:nth-of-type(6), .fontWeights ul:nth-of-type(9){
+margin-bottom: 2rem;
+  }
+  
+  .fontWeights ul {
+
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .fontWeights ul li{
+    border-right: solid 0.1rem black;
+    padding-right: 3rem;
+  }
+
+  .fontWeights h2{
+    padding-top: 5vh;
+  }
+}
+
+@media (max-width: 1300px) {
+  .fontWeights ul {
+
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .fontWeights ul li{
+    border-right: none;
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: 906px) {
+  .fontWeights h2 span{
+    letter-spacing: 1vw;
+  }
+
+  .fontWeights h2{
+    font-size: 9vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .fontWeights h2{
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 490px) {
+  .fontWeights ul li{
+    font-size: 5.5vw;
+  }
+}
+
+
+/***************************************THIN*************************************/
+.weights1 ul:first-child li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 100, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:first-child li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 100, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:first-child li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 100, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+/***************************************EXTRA LIGHT*************************************/
+.weights1 ul:nth-of-type(2) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 190, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:nth-of-type(2) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 190, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:nth-of-type(2) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 190, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+/***************************************LIGHT*************************************/
+.weights1 ul:nth-of-type(3) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 225, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:nth-of-type(3) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 225, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights1 ul:nth-of-type(3) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 225, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+
+
+
+
+/***************************************REGULAR*************************************/
+.weights2 ul:nth-of-type(1) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 315, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(1) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 295, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(1) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 335, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+
+/***************************************MEDIUUM*************************************/
+.weights2 ul:nth-of-type(2) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 425, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(2) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 425, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(2) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 425, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+/***************************************SEMIBOLD*************************************/
+.weights2 ul:nth-of-type(3) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 545, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(3) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 545, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights2 ul:nth-of-type(3) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 545, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+
+
+/***************************************BOLD*************************************/
+.weights3 ul:nth-of-type(1) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 665, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(1) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 665, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(1) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 665, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+/***************************************EXTRABOLD*************************************/
+.weights3 ul:nth-of-type(2) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 790, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(2) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 790, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(2) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 790, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+/***************************************Black*************************************/
+.weights3 ul:nth-of-type(3) li:nth-of-type(1){
+  font-variation-settings:
+  "XOPQ" 875, "XTRA" 400, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(3) li:nth-of-type(2){
+  font-variation-settings:
+  "XOPQ" 850, "XTRA" 100, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+.weights3 ul:nth-of-type(3) li:nth-of-type(3){
+  font-variation-settings:
+  "XOPQ" 900, "XTRA" 800, "OPSZ" 16, "GRAD" 0, "YTRA" 750, "CNTR" 0, "YOPQ" 100, "SERF" 0, "YTAS" 0, "YTLC" 650, "YTDE" 0, "SELE" 0;
+}
+
+
+/******************************************************************************************/
+/***************************************Library*************************************/
+/******************************************************************************************/
+
+/* GENERAL */
+
+/* * {
+
+  box-sizing: border-box;
+  font-size: 100%;
+
+} */
+
+.shootable button,
+.charset-detail{
+  font-family: "Graduate", "Roboto Slab", "Courier New", serif;
+}
+
+.charset {
+  grid-column: span 12;
+  background: var(--Grijs);
+  color: black;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  user-select: none;
+  height: 100vh;
+  padding: 5vh 5vw;
+}
+
+.charset > div {
+  align-self: center;
+}
+
+.charset-overview {
+  grid-column: span 8;
+}
+
+.charset-overview ul li {
+  display: inline-block;
+  width: 2.5vw;
+  height: 2.5vw;
+  line-height: 2.5vw;
+  font-size: 1.5vw;
+  text-align: center;
+
+}
+
+.charset-overview ul li button {
+  color: inherit;
+  background: transparent;
+  border: none;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  transition: transform .15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+.charset-overview ul li button:hover, .charset-overview ul li button:focus {
+  transform: scale(1.7);
+  background: var(--DonkerRood);
+  background: #fff;
+  color: #000;
+  outline: none;
+}
+
+.charset-overview ul li button.active, .charset-overview ul li button.active:hover, .charset-overview ul li button.active:focus {
+  color: #000;
+  z-index: 1;
+  position: relative;
+  box-shadow: var(--DonkerRood) 0 0 0 2px;
+}
+
+.charset-overview ul li button.active{
+  color: #fff;
+}
+
+.charset-detail {
+  grid-column: span 4;
+  font-size: 24vw;
+  align-self: center;
+  text-align: center;
+  pointer-events: auto;
+  margin-top: -2vw;
+}
+
+.charset-detail span {
+  display: block;
+}
+
+.charset-detail--animated span {
+  animation: charsetdetail .4s cubic-bezier(0, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes charsetdetail {
+  0% {
+      font-variation-settings: 'wght' 60;
+      transform: scale(.4);
+      text-shadow: rgba(0,0,0,.5) 0px 0px 0px;
+  }
+
+  70% {
+      font-variation-settings: 'wght' 140;
+      transform: scale(1.4) translate(-.5vw, -2vw);
+      text-shadow: rgba(0,0,0,.3) 2vw 2vw 0px;
+  }
+
+  100% {
+      font-variation-settings: 'wght' 80;
+      transform: scale(1);
+      text-shadow: rgba(0,0,0,.5) 0px 0px 0px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+
+  .charset{
+    overflow-y: scroll;
+  }
+
+  .charset > div {
+      padding: 0;
+  }
+
+  div.charset-overview {
+      grid-column: span 12;
+      /* padding: 5vh 5vw; */
+  }
+
+  .charset-detail {
+      background: var(--Rood);
+      color: #000;
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      line-height: 35vw;
+      height: 35vw;
+      width: 35vw;
+      border-radius: 15px;
+      z-index: 2;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0);
+      transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1), outline 0s;
+  }
+
+  .charset-detail--visible {
+      display: block;
+      visibility: visible;
+      transform: scale(1);
+  }
+
+  .charset-detail {
+      pointer-events: auto !important;
+  }
+
+  .charset-detail.shot {
+      visibility: hidden !important;
+      pointer-events: none !important;
+  }
+
+  .charset-overview ul li {
+      width: 8vw;
+      height: 8vw;
+      margin-bottom: 2vw;
+      line-height: 8vw;
+      font-size: 6vw;
+  }
+}
+
+
+.H{
+  animation: none; /* Standaard geen animatie */
+}
+
+.start-animation {
+  animation: dash 2s forwards; /* Voeg een klasse toe om de animatie te starten */
+}
+
+
+
+
+
+/******************************************************************************************/
+/***************************************Conclusie*************************************/
+/******************************************************************************************/
+
+.conclusie {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Grijs);
+}
+
+
+
+.conclusie article:first-of-type{
+  width: 40%; /* Zorg ervoor dat het artikel 60% van de sectie breed is */
+  margin: 0; /* Geen marge */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 7vh 5vw;
+  overflow-y: auto;
+}
+
+.conclusie article:nth-of-type(2){
+  width: 60%;
+  height: 100%;
+  display: flex;
+    justify-content: flex-end;
+}
+
+.conclusie article:nth-of-type(2) img{
+  height: -webkit-fill-available;
+  object-fit: cover;
+}
+
+
+
+@media screen and (max-width: 1260px) {
+  .conclusie {
+    flex-direction: column; /* Artikelen onder elkaar */
+    height: auto; /* Hoogte past zich aan */
+  }
+
+  .conclusie article:first-of-type {
+    width: fit-content; /* Volledige breedte */
+    display: grid; /* Gebruik CSS Grid */
+    grid-template-columns: 1fr 1fr; /* Twee gelijke kolommen */
+    gap: 2rem; /* Ruimte tussen de kolommen */
+    padding: 5vh 3vw; /* Iets kleinere padding voor tablet */
+  }
+
+  .conclusie article:first-of-type p:nth-of-type(1),
+  .conclusie article:first-of-type p:nth-of-type(2) {
+    grid-column: 1; /* Plaats eerste twee paragrafen in de eerste kolom */
+  }
+
+  .conclusie article:first-of-type p:nth-of-type(3),
+  .conclusie article:first-of-type p:nth-of-type(4) {
+    grid-column: 2; /* Plaats derde en vierde paragraaf in de tweede kolom */
+  }
+
+  .conclusie article:nth-of-type(2) {
+    width: 100%; /* Volledige breedte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .conclusie article:nth-of-type(2) img {
+    width: 100%; /* Afbeelding past zich aan de breedte aan */
+    height: auto; /* Behoud verhoudingen */
+    max-height: 40vh; /* Beperk de afbeelding tot 40% van de viewport hoogte */
+    object-fit: cover; /* Houdt de afbeelding proportioneel passend in de container */
+  }
+
+  .conclusie article:first-of-type{
+    margin: 0;
+  }
+}
+
+/* Voor mobiele schermen (bijvoorbeeld smartphones) */
+@media screen and (max-width: 768px) {
+  .conclusie article:first-of-type {
+    /* Terug naar één kolom op kleinere schermen */
+    display: block; /* Geen grid op mobiel */
+    padding: 2rem; /* Behoud padding voor overzichtelijkheid */
+  }
+
+  /* Extra ruimte tussen titel en paragrafen */
+  .conclusie article:first-of-type h2 {
+    margin-bottom: 2rem; /* Voeg ruimte onder de titel toe */
+  }
+
+  .conclusie article:first-of-type p:nth-of-type(1),
+  .conclusie article:first-of-type p:nth-of-type(2),
+  .conclusie article:first-of-type p:nth-of-type(3){
+    padding-bottom: 1rem;
+  }
+
+}

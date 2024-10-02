@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="511.69" height="529.25" viewBox="0 0 511.69 529.25" style="background-color:transparant">
+  <defs>
+    <style>
+    
+<g
+        stroke-linecap="round"
+        stroke-width="4"
+        stroke="rgb(0, 0, 0)"
+        fill="none"
+    >
+        <circle cx="12" cy="12" r="10" />
+        <path d="M7 11 H17" />
+    </g>
+      <!-- black border -->
+      .cls-1 {
+        fill: #231f20;
+      }
+
+        <!-- outerline -->
+      .cls-2 {
+        stroke: #5269b2;
+        stroke-width: 5px;
+      }
+
+      .cls-2, .path, .dashed {
+        fill: none;
+        stroke-miterlimit: 10;
+      }
+
+        <!-- inside -->
+      .cls-4 {
+        fill: #f6fbfd;
+      }
+
+        <!-- inner dash -->
+      .dashed{
+        stroke-dasharray: 10;
+        stroke: white;
+              stroke-width: 3px;
+      }
+
+      .path {
+        stroke: red;
+        stroke-width: 2px;
+        stroke-dasharray: 3100;
+        <!-- stroke-dashoffset: 3100; -->
+        animation: dash 5s linear forwards;
+      }
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 3100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+</style>
+
+
+    
+  </defs>
+  <polygon class="cls-1" points="270.86 526.75 270.86 390.61 317.25 390.61 317.25 329.87 194.44 329.87 194.44 390.61 240.84 390.61 240.84 526.75 2.5 526.75 2.5 390.61 44.51 390.61 44.51 138.64 2.5 138.64 2.5 2.5 240.84 2.5 240.84 138.64 194.44 138.64 194.44 199.38 317.25 199.38 317.25 138.64 270.86 138.64 270.86 2.5 509.19 2.5 509.19 138.64 467.19 138.64 467.19 390.61 509.19 390.61 509.19 526.75 270.86 526.75"/>
+  <polygon class="cls-4" points="482.19 111.64 482.19 29.5 297.86 29.5 297.86 111.64 344.25 111.64 344.25 226.38 167.44 226.38 167.44 111.64 213.84 111.64 213.84 29.5 29.5 29.5 29.5 111.64 71.51 111.64 71.51 417.61 29.5 417.61 29.5 499.75 213.84 499.75 213.84 417.61 167.44 417.61 167.44 302.87 344.25 302.87 344.25 417.61 297.86 417.61 297.86 499.75 482.19 499.75 482.19 417.61 440.19 417.61 440.19 111.64 482.19 111.64"/>
+  <polygon class="path" points="307.86 489.75 307.86 427.61 354.25 427.61 354.25 292.87 157.44 292.87 157.44 427.61 203.84 427.61 203.84 489.75 39.5 489.75 39.5 427.61 81.51 427.61 81.51 101.64 39.5 101.64 39.5 39.5 203.84 39.5 203.84 101.64 157.44 101.64 157.44 236.38 354.25 236.38 354.25 101.64 307.86 101.64 307.86 39.5 472.19 39.5 472.19 101.64 430.19 101.64 430.19 427.61 472.19 427.61 472.19 489.75 307.86 489.75"/>
+  <polygon class="dashed" points="307.86 489.75 307.86 427.61 354.25 427.61 354.25 292.87 157.44 292.87 157.44 427.61 203.84 427.61 203.84 489.75 39.5 489.75 39.5 427.61 81.51 427.61 81.51 101.64 39.5 101.64 39.5 39.5 203.84 39.5 203.84 101.64 157.44 101.64 157.44 236.38 354.25 236.38 354.25 101.64 307.86 101.64 307.86 39.5 472.19 39.5 472.19 101.64 430.19 101.64 430.19 427.61 472.19 427.61 472.19 489.75 307.86 489.75"/>
+  <polygon class="cls-2" points="270.86 526.75 270.86 390.61 317.25 390.61 317.25 329.87 194.44 329.87 194.44 390.61 240.84 390.61 240.84 526.75 2.5 526.75 2.5 390.61 44.51 390.61 44.51 138.64 2.5 138.64 2.5 2.5 240.84 2.5 240.84 138.64 194.44 138.64 194.44 199.38 317.25 199.38 317.25 138.64 270.86 138.64 270.86 2.5 509.19 2.5 509.19 138.64 467.19 138.64 467.19 390.61 509.19 390.61 509.19 526.75 270.86 526.75"/>
+</svg>
+
+
+
+
+  <!-- <script>
+        function resetAnimation() {
+            const path = document.querySelector('.path');
+            path.style.animation = 'none'; // Stop de huidige animatie
+            void path.offsetWidth; // Trigger reflow
+            path.style.animation = ''; // Herstart de animatie
+        }
+
+        // Start de animatie automatisch bij het laden van de pagina
+        window.onload = function() {
+            resetAnimation(); // Voer de animatie uit bij het laden
+
+            // Herstart de animatie elke 10 seconden (pas dit aan indien nodig)
+            setInterval(resetAnimation, 10000);
+        };
+    </script> -->
