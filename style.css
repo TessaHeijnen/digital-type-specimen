@@ -4,11 +4,11 @@ html {
 
 @font-face {
   font-family: "Graduate";
-  src: url("font/GRADUATE.ttf");
+  src: url("/font/GRADUATE.ttf");
   /* https://github.com/etunni/Graduate-Variable-Font */
 
   font-family: "Egyptienne";
-  src: url("font/egyptienne-std-bold-regular.ttf");
+  src: url("/font/egyptienne-std-bold-regular.ttf");
 }
 
 * {
